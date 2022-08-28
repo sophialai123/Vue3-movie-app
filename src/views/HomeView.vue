@@ -5,10 +5,7 @@
       <router-link to="/movie/tt0409591">
         <img src="https://img.freepik.com/premium-photo/movie-clapper-red-background-with-copy-space_23-2148416747.jpg?w=1480" alt="Naruto Poster" class="featured-img" />
         <div class="detail">
-          <!-- <h3>Naruto</h3> -->
-          <!-- <p>Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.</p> -->
-      
-    </div>
+     </div>
   </router-link>
   <!-- fetch search movies and call the function -->
   <form @submit.prevent="SearchMovies()" class="search-box">
@@ -20,13 +17,13 @@
         <!-- loop moive array -->
         <div class="movie" v-for="(movie,index) in movies" :key="index">
           <router-link to="'/movie/' + movie.imdbID" class="movie-link">
-            <div class="product-image">
-              <img :src='movie.Poster' alt="Movie Poster"/>
-              <div class="type">{{movie.Type}}</div>
-            </div>
             <div class="detail">
               <h3>{{movie.Title}}</h3>
               <div class="y">{{movie.Year}}</div>
+            </div>
+            <div class="product-image">
+              <img :src='movie.Poster' alt="Movie Poster"/>
+              <div class="type">{{movie.Type}}</div>
             </div>
           </router-link>
         </div>
