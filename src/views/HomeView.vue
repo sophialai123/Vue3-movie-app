@@ -12,14 +12,13 @@
       <input type="text" placeholder="What are you looking for?" v-model="search" />
       <input type="submit" value="Search"  />
     </form>
-
-      <div class="movie-list">
+      <div class="movies-list">
         <!-- loop moive array -->
-        <div class="movie" v-for="(movie,index) in movies" :key="index">
-          <router-link to="'/movie/' + movie.imdbID" class="movie-link">
+        <div class="movie" v-for="movie in movies" :key="movie.imdbID">
+          <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
             <div class="detail">
               <h3>{{movie.Title}}</h3>
-              <div class="y">{{movie.Year}}</div>
+              <div class="year">{{movie.Year}}</div>
             </div>
             <div class="product-image">
               <img :src='movie.Poster' alt="Movie Poster"/>
@@ -166,13 +165,58 @@ export default {
     }
   }
 
-  .movie-list{
+  .movies-list{
     margin: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     gap:5%;
+
+    .movie {
+      max-width: 50%;
+      flex: 1 1 50%;
+      padding: 16px 8px;
+      .movie-link {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        .product-image {
+          position: relative;
+          display: block;
+          img {
+            display: block;
+            width: 100%;
+            height: 275px;
+            object-fit: cover;
+          }
+          .type {
+            position: absolute;
+            padding: 8px 16px;
+            background-color: #42B883;
+            color: #FFF;
+            bottom: 16px;
+            left: 0px;
+            text-transform: capitalize;
+          }
+        }
+        .detail {
+          background-color: #496583;
+          padding: 16px 8px;
+          flex: 1 1 100%;
+          border-radius: 0px 0px 8px 8px;
+          .year {
+            color: #AAA;
+            font-size: 14px;
+          }
+          h3 {
+            color: #FFF;
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+      }
+    }
   }
   
 
