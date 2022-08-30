@@ -47,7 +47,6 @@ export default {
 
     //fetch the movie api
     const SearchMovies =()=>{
-      //const apikey = '210e1944';
       if(search.value !==""){
         fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.VUE_APP_API_KEY}&s=${search.value}`)
         .then((response)=>response.json())

@@ -17,8 +17,6 @@ export default {
    const route = useRoute()
    //call Lifecycle hook
    onBeforeMount(()=>{
-     //const apikey = '210e1944';
-     
     //router link id
     fetch(`http://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&i=${route.params.id}&plot=full`)
     .then((res=> res.json()))
