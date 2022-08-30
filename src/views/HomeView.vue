@@ -40,8 +40,6 @@ import{ref} from "vue";
 //import apikey
 //import env from '.@/env.js'
 
-
-
 export default {
   setup(){
     const search = ref('');
@@ -51,7 +49,7 @@ export default {
     const SearchMovies =()=>{
       //const apikey = '210e1944';
       if(search.value !==""){
-        fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.apikey}&s=${search.value}`)
+        fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.VUE_APP_API_KEY}&s=${search.value}`)
         .then((response)=>response.json())
         .then((data)=>{
           //array movie 
@@ -62,7 +60,6 @@ export default {
         }
         
       )}
-    
     }
 
     return {

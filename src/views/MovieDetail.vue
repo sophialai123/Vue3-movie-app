@@ -10,7 +10,6 @@
 <script>
 import{ref, onBeforeMount} from 'vue';
 import { useRoute } from 'vue-router';
-require('dotenv').config()
 
 export default {
   setup(){
@@ -21,7 +20,7 @@ export default {
      //const apikey = '210e1944';
      
     //router link id
-    fetch(`http://www.omdbapi.com/?apikey=${process.env.apikey}&i=${route.params.id}&plot=full`)
+    fetch(`http://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&i=${route.params.id}&plot=full`)
     .then((res=> res.json()))
     .then((data=> movie.value = data)) //ref movie 
   })
