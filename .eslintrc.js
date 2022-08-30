@@ -1,3 +1,6 @@
+//npm install node-polyfill-webpack-plugin
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+
 module.exports = {
   root: true,
   env: {
@@ -13,5 +16,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-  }
+  },
+  plugins: [
+    new NodePolyfillPlugin()
+]
 }
